@@ -17,16 +17,22 @@ ttk.Button(mainframe, text="New").grid(column=1, row=1)
 
 # scrollable frame to hold the characters
 charframe = Pmw.ScrolledFrame(mainframe)
-charframe._clipper.config(width=400, height=600)
-charframe.interior().configure(bg='yellow')
+charframe._clipper.config(height=300)
 charframe.grid(column=1, row=2)
 
 # frame for character 1
-test_label = ttk.Label(charframe.interior(), text="test")
-test_label.grid(column=1, row=1)
-
+char1 = ttk.Frame(charframe.interior())
+char1.grid(column=1, row=1, sticky='new')
 # initiative for character 1
-#ttk.Label(char1, text="Initiative").grid(column=1, row=1)
+ttk.Label(char1, text="Initiative").grid(column=1, row=1)
+# initiative number
+ttk.Label(char1, text="15").grid(column=2, row=1)
+# NPC check box label
+ttk.Label(char1, text="NPC:").grid(column=1, row=2, sticky='e')
+# NPC check box
+ttk.Checkbutton(char1).grid(column=2, row=2)
+# delete button
+ttk.Button(char1, text="Delete").grid(column=3, row=2)
 
 # put space around widgits
 for child in mainframe.winfo_children():
